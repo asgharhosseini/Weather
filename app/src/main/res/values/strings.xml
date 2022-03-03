@@ -5,4 +5,7 @@
     <string name="try_again">Retry</string>
     <string name="current_weather">Current Weather</string>
     <string name="favorite">Favorite</string>
+    <string name="app_desc">Kianiranian Smart tech development group</string>
+    <string name="app_site">www.kianiranian.com</string>
+
 </resources>

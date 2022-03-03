@@ -3,12 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/drawable/background_color.xml" value="0.2265" />
         <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/layout/fragment_current_weather.xml" value="0.25" />
         <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/layout/fragment_favorite.xml" value="0.25" />
         <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/layout/fragment_next_weather.xml" value="0.25" />
         <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/layout/fragment_setting.xml" value="0.25" />
-        <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/layout/fragment_splash.xml" value="0.25" />
+        <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/layout/fragment_splash.xml" value="0.2" />
         <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/layout/no_internet_layout.xml" value="0.22826086956521738" />
         <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/menu/main_menu.xml" value="0.25" />
       </map>

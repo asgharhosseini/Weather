@@ -89,11 +89,9 @@ abstract class BaseFragment<viewModel : BaseViewModel>(
                         retry?.let { showNoInternetLayout(it) }
                     }
                     is ApiCallFailure.Unauthorized -> {
-                        // FIXME: 6/28/2021: navigate to auth fragment with global action (or can receive from function arguments)
-                        //  and clear db..
+
                     }
                     is ApiCallFailure.OtherError -> {
-                        //FIXME: 6/28/2021: handle other errors [SealedCallResponse] or show the message or...
                     }
                 }
             }

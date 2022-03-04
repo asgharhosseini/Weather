@@ -12,6 +12,8 @@ sealed class ApiCallFailure(
 
     class OtherError(override val errorMessage: String?, override val error: Exception? = null) :
         ApiCallFailure(errorMessage = errorMessage, error)
+    class WeatherError(override val errorMessage: String?, override val error: Exception? = null) :
+        ApiCallFailure(errorMessage = errorMessage, error)
 
     object NoInternet : ApiCallFailure()
 }

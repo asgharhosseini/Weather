@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/drawable/background_color.xml" value="0.2265" />
+        <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/drawable/bg_setting.xml" value="0.1455" />
         <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/layout/fragment_current_weather.xml" value="0.25" />
         <entry key="..\:/dev/StudioProjects/weather/app/src/main/res/layout/fragment_favorite.xml" value="0.25" />

@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             when (destination.id) {
-                R.id.splashFragment-> {
+                R.id.splashFragment,R.id.settingFragment-> {
                     hideBottomNav()
                 }
             }

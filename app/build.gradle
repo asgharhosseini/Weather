@@ -21,6 +21,7 @@ android {
         vectorDrawables.useSupportLibrary = true
         buildConfigField "String", "API_PRODUCTION_URL", "\"https://api.openweathermap.org/data/2.5/\""
         buildConfigField "String", "STAGE_BASE_URL", "\"https://api.openweathermap.org/data/2.5/\""
+        buildConfigField "String", "API_KEY", "\"d4d8ee3c07642a63b057a058f703080a\""
         buildConfigField "boolean", "DEMO_MODE", "Boolean.parseBoolean(\"true\")"
     }
 
@@ -74,7 +75,7 @@ dependencies {
     implementation 'com.squareup.moshi:moshi-kotlin:1.9.1'
     implementation 'com.squareup.moshi:moshi-adapters:1.8.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.1.0'
-    kapt "com.squareup.moshi:moshi-kotlin-codegen:1.12.0"
+//    kapt "com.squareup.moshi:moshi-kotlin-codegen:1.12.0"
 
 
     // Logging Interceptor

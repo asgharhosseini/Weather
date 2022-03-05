@@ -14,4 +14,6 @@ data class Weather(
     val id: Int,
   @Json(name ="main")
     val main: String
-)
+){
+
+}

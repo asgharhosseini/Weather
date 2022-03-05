@@ -7,13 +7,13 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class Sys(
     @Json(name ="country")
-    val country: String,
+    val country: String?,
     @Json(name ="id")
-    val id: Int,
+    val id: Int?,
     @Json(name ="sunrise")
-    val sunrise: Int,
+    val sunrise: Int?,
     @Json(name ="sunset")
-    val sunset: Int,
+    val sunset: Int?,
     @Json(name ="type")
-    val type: Int
+    val type: Int?
 )

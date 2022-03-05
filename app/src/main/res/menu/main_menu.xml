@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/current_weather"
         android:icon="@drawable/ic_baseline_cloud_24"
         android:title="@string/current_weather" />
 

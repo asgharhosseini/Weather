@@ -1,13 +1,10 @@
 package ir.ah.weather.ui.nextweather
 
-import android.util.Log
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.ah.weather.base.BaseViewModel
-import ir.ah.weather.data.local.UserInfoManager
+import ir.ah.weather.data.local.UserInfoManagerImpl
 import ir.ah.weather.data.model.ForecastResponse
 import ir.ah.weather.data.repository.NextWeather.NextWeatherRepository
-import ir.ah.weather.data.repository.NextWeather.NextWeatherRepositoryImpl
-import ir.ah.weather.other.wrapper.ApiCallFailure
 import ir.ah.weather.other.wrapper.Resource
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.channels.Channel
@@ -18,7 +15,7 @@ import javax.inject.Inject
 class NextWeatherViewModel @Inject constructor(
     private val mainCoroutineDispatcher: CoroutineDispatcher,
     private val repository: NextWeatherRepository,
-    private val userInfoManager: UserInfoManager
+    private val userInfoManagerImpl: UserInfoManagerImpl
 ) : BaseViewModel(mainCoroutineDispatcher) {
     private val nextWeatherForecastChanel = Channel<Resource<ForecastResponse>>()
     val nextWeatherForecast = nextWeatherForecastChanel.receiveAsFlow()
@@ -28,7 +25,7 @@ class NextWeatherViewModel @Inject constructor(
         nextWeatherForecastChanel.send(Resource.Loading)
         nextWeatherForecastChanel.send(
             repository.getNextWeather(
-                userInfoManager.getLocal().toString()
+                userInfoManagerImpl.getLocal().toString()
             )
         )
 

@@ -2,24 +2,24 @@ package ir.ah.weather.ui.splash
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.ah.weather.base.BaseViewModel
-import ir.ah.weather.data.local.UserInfoManager
+import ir.ah.weather.data.local.UserInfoManagerImpl
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.receiveAsFlow
 import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
     private val mainCoroutineDispatcher: CoroutineDispatcher,
-    private val userInfoManager: UserInfoManager
+    private val userInfoManagerImpl: UserInfoManagerImpl
 ) : BaseViewModel(mainCoroutineDispatcher) {
 
     fun refreshSetting() = doInMain {
-        if (userInfoManager.getLocal().isNullOrEmpty()&&
-            userInfoManager.getLocal().isNullOrEmpty()
-        ) {
+
+        if (userInfoManagerImpl.getLocal().first().isEmpty()) {
             splashEventChannel.send(SplashEvent.NavigateToSetting(false))
-        }else{
+        } else {
             splashEventChannel.send(SplashEvent.NavigateToCurrentWeather(true))
         }
     }

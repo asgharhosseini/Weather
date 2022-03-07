@@ -1,25 +1,10 @@
 package ir.ah.weather.data.local
-import android.content.*
-import javax.inject.*
 
+import kotlinx.coroutines.flow.Flow
 
-class UserInfoManager @Inject constructor(private val sharedPreferences: SharedPreferences) {
+interface UserInfoManager {
 
-
-    fun saveUser(local: String) {
-        val editor = sharedPreferences.edit()
-        editor.putString("local", local)
-        editor.apply()
-    }
-
-
-
-    fun getLocal(): String? {
-        return sharedPreferences.getString("local", null)
-    }
-
-
-    fun clear() = sharedPreferences.edit().clear().apply()
-
+    suspend fun saveUser(local: String)
+    suspend fun getLocal(): Flow<String>?
 
 }

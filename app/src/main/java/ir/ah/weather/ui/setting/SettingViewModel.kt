@@ -2,6 +2,7 @@ package ir.ah.weather.ui.setting
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.ah.weather.base.BaseViewModel
+import ir.ah.weather.data.local.UserInfoManager
 import ir.ah.weather.data.local.UserInfoManagerImpl
 import ir.ah.weather.data.repository.setting.SettingRepository
 import ir.ah.weather.other.wrapper.ApiCallFailure
@@ -16,7 +17,7 @@ import javax.inject.Inject
 class SettingViewModel @Inject constructor(
     private val mainCoroutineDispatcher: CoroutineDispatcher,
     private val settingRepository: SettingRepository,
-    private val userInfoManagerImpl: UserInfoManagerImpl
+    private val userInfoManagerImpl: UserInfoManager
 ) : BaseViewModel(mainCoroutineDispatcher) {
     val localName: MutableStateFlow<String> = MutableStateFlow("")
     private val settingEventChannel = Channel<SettingEvent>()

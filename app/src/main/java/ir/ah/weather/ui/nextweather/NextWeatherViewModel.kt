@@ -15,7 +15,7 @@ import javax.inject.Inject
 class NextWeatherViewModel @Inject constructor(
     private val mainCoroutineDispatcher: CoroutineDispatcher,
     private val repository: NextWeatherRepository,
-    private val userInfoManagerImpl: UserInfoManagerImpl
+//    private val userInfoManagerImpl: UserInfoManagerImpl
 ) : BaseViewModel(mainCoroutineDispatcher) {
     private val nextWeatherForecastChanel = Channel<Resource<ForecastResponse>>()
     val nextWeatherForecast = nextWeatherForecastChanel.receiveAsFlow()
@@ -25,7 +25,7 @@ class NextWeatherViewModel @Inject constructor(
         nextWeatherForecastChanel.send(Resource.Loading)
         nextWeatherForecastChanel.send(
             repository.getNextWeather(
-                userInfoManagerImpl.getLocal().toString()
+              "tehran"
             )
         )
 

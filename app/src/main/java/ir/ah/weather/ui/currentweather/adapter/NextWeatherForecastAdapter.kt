@@ -17,7 +17,7 @@ class NextWeatherForecastAdapter @Inject constructor(private val glide: RequestM
     inner class NextWeatherForecastViewHolder(private val binding: ItemNextWeatherForecastBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-         fun bind(dayWeather: DayWeather, position: Int) {
+         fun bind(dayWeather: DayWeather) {
             binding.apply {
                 glide.load("${API_IMAGE_URL +dayWeather.weather.get(0).icon}.png").into(binding.itemCurrentForecastImageView)
                 binding.itemRoot.setCardBackgroundColor(dayWeather.getColor())
@@ -37,7 +37,7 @@ class NextWeatherForecastAdapter @Inject constructor(private val glide: RequestM
 
     override fun onBindViewHolder(holder: NextWeatherForecastViewHolder, position: Int) {
         val currentItem = getItem(position)
-        holder.bind(currentItem,position)
+        holder.bind(currentItem)
         holder.itemView.setOnClickListener {
             onItemClickListener?.let { click ->
                 click(currentItem)

@@ -18,7 +18,7 @@ class CurrentForecastAdapter @Inject constructor(private val glide: RequestManag
     inner class CurrentForecastViewHolder(private val binding: ItemCurrentForecastBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-         fun bind(dayWeather: DayWeather, position: Int) {
+         fun bind(dayWeather: DayWeather) {
             binding.apply {
                 glide.load("${API_IMAGE_URL +dayWeather.weather.get(0).icon}.png").into(binding.itemCurrentForecastImageView)
 
@@ -37,7 +37,7 @@ class CurrentForecastAdapter @Inject constructor(private val glide: RequestManag
 
     override fun onBindViewHolder(holder: CurrentForecastViewHolder, position: Int) {
         val currentItem = getItem(position)
-        holder.bind(currentItem,position)
+        holder.bind(currentItem)
         holder.itemView.setOnClickListener {
             onItemClickListener?.let { click ->
                 click(currentItem)

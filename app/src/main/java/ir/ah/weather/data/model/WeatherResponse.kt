@@ -40,11 +40,11 @@ data class WeatherResponse(
     val wind: Wind
 ){
   fun getWeatherItem(): Weather? {
-    return weather?.first()
+    return weather.first()
   }
 
   fun getDay(): String? {
-    return dt?.let { getDateTime(it)?.getDisplayName(TextStyle.FULL, Locale.getDefault()) }
+    return dt.let { getDateTime(it)?.getDisplayName(TextStyle.FULL, Locale.getDefault()) }
   }
 
   private fun getDateTime(s: Long): DayOfWeek? {
@@ -66,7 +66,7 @@ data class WeatherResponse(
   }
 
   fun getColor(): Int {
-    return when (dt?.let {
+    return when (dt.let {
       getDateTime(it)
     }) {
       DayOfWeek.MONDAY -> Color.parseColor("#28E0AE")

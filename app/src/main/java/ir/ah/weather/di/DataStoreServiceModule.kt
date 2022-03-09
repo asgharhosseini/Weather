@@ -26,7 +26,8 @@ class DataStoreServiceModule {
     fun provideUserPreferencesDataStore(
         @ApplicationContext app: Context
     ): DataStore<Preferences> = app.userPreferencesDataStore
-
+    @Singleton
+    @Provides
     fun provideUserInfoManager(userPreferencesDataStore: DataStore<Preferences>): UserInfoManager =
         UserInfoManagerImpl(userPreferencesDataStore)
 

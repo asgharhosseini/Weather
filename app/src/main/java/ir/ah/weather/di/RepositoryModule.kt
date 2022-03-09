@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ir.ah.weather.BuildConfig
+import ir.ah.weather.data.local.UserInfoManager
 import ir.ah.weather.data.remote.ApiService
 import ir.ah.weather.data.repository.NextWeather.NextWeatherRepository
 import ir.ah.weather.data.repository.NextWeather.NextWeatherRepositoryImpl
@@ -12,6 +13,8 @@ import ir.ah.weather.data.repository.currentweather.CurrentWeatherRepository
 import ir.ah.weather.data.repository.currentweather.CurrentWeatherRepositoryImpl
 import ir.ah.weather.data.repository.setting.SettingRepository
 import ir.ah.weather.data.repository.setting.SettingRepositoryImpl
+import ir.ah.weather.data.repository.splash.SplashRepository
+import ir.ah.weather.data.repository.splash.SplashRepositoryImpl
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -37,6 +40,13 @@ object RepositoryModule {
     internal fun provideNextWeatherRepository(apiService: ApiService): NextWeatherRepository =
         if (BuildConfig.DEMO_MODE) NextWeatherRepositoryImpl(apiService) else NextWeatherRepositoryImpl(
             apiService
+        )
+
+    @Provides
+    @Singleton
+    internal fun provideSplashRepository(userInfoManager :UserInfoManager): SplashRepository =
+        if (BuildConfig.DEMO_MODE) SplashRepositoryImpl(userInfoManager) else SplashRepositoryImpl(
+            userInfoManager
         )
 
 

@@ -31,14 +31,14 @@ data class DayWeather(
     val wind: Wind
 ){
     fun getWeatherItem(): Weather? {
-        return weather?.first()
+        return weather.first()
     }
 
     fun getDay(): String? {
-        return dt?.let { getDateTime(it)?.getDisplayName(TextStyle.FULL, Locale.getDefault()) }
+        return dt.let { getDateTime(it)?.getDisplayName(TextStyle.FULL, Locale.getDefault()) }
     }
 
-    private fun getDateTime(s: Long): DayOfWeek? {
+     fun getDateTime(s: Long): DayOfWeek? {
         return try {
             val sdf = SimpleDateFormat("dd/MM/yyyy")
             val netDate = Date(s * 1000)
@@ -72,7 +72,7 @@ data class DayWeather(
     }
 
     fun getHourColor(): Int {
-        return when (dtTxt?.substringAfter(" ")?.substringBeforeLast(":")) {
+        return when (dtTxt.substringAfter(" ").substringBeforeLast(":")) {
             "00:00" -> Color.parseColor("#28E0AE")
             "03:00" -> Color.parseColor("#FF0090")
             "06:00" -> Color.parseColor("#FFAE00")
@@ -86,6 +86,6 @@ data class DayWeather(
     }
 
     fun getHourOfDay(): String {
-        return dtTxt?.substringAfter(" ")?.substringBeforeLast(":") ?: "00:00"
+        return dtTxt.substringAfter(" ").substringBeforeLast(":") ?: "00:00"
     }
 }

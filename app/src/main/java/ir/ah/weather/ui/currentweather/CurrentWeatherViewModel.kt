@@ -3,6 +3,7 @@ package ir.ah.weather.ui.currentweather
 import android.util.Log
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.ah.weather.base.BaseViewModel
+import ir.ah.weather.data.local.UserInfoManager
 import ir.ah.weather.data.local.UserInfoManagerImpl
 import ir.ah.weather.data.model.ForecastResponse
 import ir.ah.weather.data.model.WeatherResponse
@@ -19,7 +20,7 @@ import javax.inject.Inject
 class CurrentWeatherViewModel @Inject constructor(
     private val mainCoroutineDispatcher: CoroutineDispatcher,
     private val repository: CurrentWeatherRepository,
-    private val userInfoManagerImpl: UserInfoManagerImpl
+   // private val userInfoManagerImpl: UserInfoManager
 ) : BaseViewModel(mainCoroutineDispatcher) {
 
     private val currentWeatherChanel = Channel<Resource<WeatherResponse>>()
@@ -34,7 +35,7 @@ class CurrentWeatherViewModel @Inject constructor(
         currentWeatherChanel.send(Resource.Loading)
         currentWeatherChanel.send(
             repository.getCurrentWeather(
-                userInfoManagerImpl.getLocal().first()
+               "tehran"
             )
         )
     }
@@ -43,7 +44,7 @@ class CurrentWeatherViewModel @Inject constructor(
         currentForecastChanel.send(Resource.Loading)
         currentForecastChanel.send(
             repository.getForecastWeather(
-                userInfoManagerImpl.getLocal().first()
+                "tehran"
             )
         )
     }
@@ -52,11 +53,11 @@ class CurrentWeatherViewModel @Inject constructor(
         nextWeatherForecastChanel.send(Resource.Loading)
         nextWeatherForecastChanel.send(
             repository.getNextWeather(
-                userInfoManagerImpl.getLocal().first()
+                "tehran"
             )
         )
         repository.getNextWeather(
-            userInfoManagerImpl.getLocal().first()
+            "tehran"
         ).failure.let {
             when(it){
                 is ApiCallFailure.OtherError->{
